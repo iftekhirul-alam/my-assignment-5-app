@@ -1,13 +1,13 @@
 import './App.css'
-import Hero from './components/Hero'
 import Nav from './components/Nav'
+import Banner from './components/Banner'
 
 function App() {
 
   return (
     <>
     <Nav></Nav>
-    <Hero></Hero>
+    <Banner></Banner>
     </>
   )
 }

@@ -1,11 +1,13 @@
 import './App.css'
+import Hero from './components/Hero'
+import Nav from './components/Nav'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-5xl text-red-500'>Hello</h1>
-      <button class="btn btn-primary">Button</button>
+    <Nav></Nav>
+    <Hero></Hero>
     </>
   )
 }

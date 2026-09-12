@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import type { TechType } from '../types/technologyType';
 import AvailableTech from './AvailableTech';
 import Stack from './Stack';
+import { toast } from 'react-toastify';
 
 interface TechnologyProps {
     technologyPromise: Promise<TechType[]>
@@ -12,14 +13,14 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
     const [selectedTechs, setSelectedTechs] = useState<TechType[]>([]);
 
     const handleToggleSelect = (tech: TechType) => {
-        setSelectedTechs((prev) => {
-            const exists = prev.some((item) => item.id === tech.id);
-            if (exists) {
-                return prev.filter((item) => item.id !== tech.id);
-            } else {
-                return [...prev, tech];
-            }
-        });
+            const exists = selectedTechs.some((item) => item.id === tech.id);
+            if (exists) return;
+
+            setSelectedTechs((prev) => [...prev, tech]);
+            toast.success(`${tech.name} is added successfully`, {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                });
     };
 
     return (
@@ -36,7 +37,8 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
                     <AvailableTech technology={technology} selectedTechs={selectedTechs} onToggleSelect={handleToggleSelect}></AvailableTech>
                 </div>
                 <div className='w-full lg:w-[25%]'>
-                    <Stack selectedTechs={selectedTechs} onRemove={handleToggleSelect}></Stack>
+                    <Stack selectedTechs={selectedTechs} onRemove={(tech) => {
+                        setSelectedTechs((prev) => prev.filter(item => item.id !== tech.id));}}></Stack>
                 </div>
             </div>
 

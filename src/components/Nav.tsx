@@ -4,7 +4,7 @@ import '../index.css'
 
 const Nav = () => {
     return (
-        <nav className='sticky flex navbar bg-amber-50 justify-between items-center container mx-auto'>
+        <nav className='sticky top-0 z-50 flex navbar bg-amber-50 justify-between items-center container mx-auto px-4'>
             <img src={Logo} alt="Logo in nav" />
 
             <ul className='flex gap-6'>

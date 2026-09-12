@@ -7,7 +7,7 @@ const Nav = () => {
         <nav className='sticky flex navbar bg-amber-50 justify-between items-center container mx-auto'>
             <img src={Logo} alt="Logo in nav" />
 
-            <ul className='flex gap-6' items-center>
+            <ul className='flex gap-6'>
                 <li className='hover:text-fuchsia-600 active:text-'>Home</li>
                 <li className='hover:text-fuchsia-600'>Technologies</li>
                 <li className='hover:text-fuchsia-600'>Projects</li>

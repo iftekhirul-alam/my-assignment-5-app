@@ -1,9 +1,9 @@
-import React from 'react';
 import Logo from '../assets/logo-text.png'
 
 const Footer = () => {
     return (
         <div>
+            <hr className="h-px my-8 bg-gray-200 border-0 "/>
         <div className='flex justify-center mt-10 container mx-auto'>
             
             <div className='w-[40%]'>

@@ -13,14 +13,30 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
     const [selectedTechs, setSelectedTechs] = useState<TechType[]>([]);
 
     const handleToggleSelect = (tech: TechType) => {
-            const exists = selectedTechs.some((item) => item.id === tech.id);
-            if (exists) return;
+        const exists = selectedTechs.some((item) => item.id === tech.id);
+        if (exists) return;
 
-            setSelectedTechs((prev) => [...prev, tech]);
-            toast.success(`${tech.name} is added successfully`, {
-                    position: "bottom-right",
-                    autoClose: 2000,
-                });
+        setSelectedTechs((prev) => [...prev, tech]);
+        toast.success(`${tech.name} is added successfully`, {
+            position: "bottom-right",
+            autoClose: 2000,
+        });
+    };
+
+    const handleRemove = (tech: TechType) => {
+        setSelectedTechs((prev) => prev.filter(item => item.id !== tech.id));
+        toast.info(`${tech.name} removed successfully`, {
+            position: "bottom-right",
+            autoClose: 2000,
+        });
+    };
+
+    const handleRemoveAll = () => {
+        setSelectedTechs([]);
+        toast.error("All technologies removed from stack", {
+            position: "bottom-right",
+            autoClose: 2000,
+        });
     };
 
     return (
@@ -37,8 +53,7 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
                     <AvailableTech technology={technology} selectedTechs={selectedTechs} onToggleSelect={handleToggleSelect}></AvailableTech>
                 </div>
                 <div className='w-full lg:w-[25%]'>
-                    <Stack selectedTechs={selectedTechs} onRemove={(tech) => {
-                        setSelectedTechs((prev) => prev.filter(item => item.id !== tech.id));}}></Stack>
+                    <Stack selectedTechs={selectedTechs} onRemove={handleRemove} onRemoveAll={handleRemoveAll}></Stack>
                 </div>
             </div>
 

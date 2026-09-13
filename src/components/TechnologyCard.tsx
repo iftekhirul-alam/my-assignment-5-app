@@ -47,10 +47,10 @@ const TechnologyCard = ({ tech, isSelected, onToggleSelect}: TechnologyCardProps
                     className={`w-full rounded-xl py-3.5 text-[15px] font-semibold transition-colors duration-200
                         ${
                         isSelected
-                            ? 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            : 'bg-[#0d1117] text-white hover:bg-[#161b22]'
+                            ? 'bg-pink-200 text-pink-600 hover:cursor-not-allowed'
+                            : 'bg-black text-white hover:bg-[#161b22]'
                     }`}>
-                    {isSelected ? 'Selected' : 'Add to Stack'}
+                    {isSelected ? 'Added to Stack' : 'Add to Stack'}
                 </button>
 
             </div>

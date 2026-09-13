@@ -1,4 +1,3 @@
-import React from 'react';
 import { type TechType } from '../types/technologyType';
 
 interface StockProps {

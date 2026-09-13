@@ -2,7 +2,7 @@ import Banner from "../assets/banner-stack.png"
 
 const Hero = () => {
   return (
-    <div className='flex justify-cente container mx-auto'>
+    <div className='flex md:justify-cente container mx-auto'>
       <div className='w-[60%]'>
         <p className="text-7xl font-bold leading-tight text-slate-900 mt-16">Build Your Ideal
           <span className="block bg-linear-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
